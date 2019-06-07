@@ -1,2 +1,13 @@
 <h1>Login</h1>
 
+<%= for_for (@user), url: "/login" do |f| %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <br>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.submit "Log In" %>
+<% end %>
+
+<p><%= link_to "Need to create an account?", new_user_path %></p>

@@ -1,19 +1,19 @@
 <%= form_for (@user) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name, required:true %>
-    
+    <br>
     <%= f.label :email %>
     <%= f.email_field :email, required:true %>
-
+    <br>
     <%= f.label :phone_number %>
     <%= f.text_field :name, required:true %>
-
+    <br>
     <%= f.label :password %>
     <%= f.password_field :password, required:true %>
-
+    <br>
     <%= f.label :confirm_password %>
     <%= f.password_field :confirm_password, required:true %>
-
+    <br>
     <%= f.submit %>
     
     Or

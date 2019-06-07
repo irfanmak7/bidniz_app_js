@@ -33,4 +33,11 @@ class SessionsController < ApplicationController
             session[:user_id] = nil
         end
     end
+
+    private
+    
+    def user_params
+        params.require(:users).permit(:username, :email, :password)
+    end
+  
 end

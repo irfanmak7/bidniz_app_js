@@ -16,6 +16,9 @@ class SessionsController < ApplicationController
     end
 
     def facebookAuth
-
+        @user = User.from_omniauth(auth)
+        @user.save
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
     end
 end

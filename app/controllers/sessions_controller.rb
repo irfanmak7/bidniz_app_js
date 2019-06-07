@@ -23,6 +23,7 @@ class SessionsController < ApplicationController
         redirect_to user_path(@user)
     end
 
+    # Logout
     def destroy
         if session[:user_id].present?
             session.delete :user_id

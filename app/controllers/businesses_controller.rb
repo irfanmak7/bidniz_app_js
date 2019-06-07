@@ -28,4 +28,10 @@ class BusinessesController < ApplicationController
 
     def destroy
     end
+
+    private
+
+    def business_params
+        params.require(:business).permit(:name, :description, :address, :price, :user_id)
+    end
 end

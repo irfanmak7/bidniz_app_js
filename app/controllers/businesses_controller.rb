@@ -11,6 +11,13 @@ class BusinessesController < ApplicationController
     end
 
     def create
+        @business = current_user.businesses.build(business_params)
+
+        if @business.save
+            redirect_to user_business_path(@business.user, @business)
+        else
+            render :new
+        end
     end
 
     def edit

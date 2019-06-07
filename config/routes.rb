@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  get '/auth/facebook/callback' => 'sessions#create'
+
 end

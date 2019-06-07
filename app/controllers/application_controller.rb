@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     end
 
     def logged_in?
-
+        session[:user_id]
     end
 
 end

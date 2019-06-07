@@ -15,5 +15,7 @@ class SessionsController < ApplicationController
         end
     end
 
-    def 
+    def facebookAuth
+
+    end
 end

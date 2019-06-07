@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
     end
 
     def require_login
+        redirect_to root_path, alert: "You have to login to see this page." unless session.include? :user_id
     end
 
 end

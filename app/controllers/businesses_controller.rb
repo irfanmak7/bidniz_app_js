@@ -7,6 +7,7 @@ class BusinessesController < ApplicationController
     end
 
     def new
+        @business = Business.new(user_id: params[:user_id])
     end
 
     def create

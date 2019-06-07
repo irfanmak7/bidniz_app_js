@@ -1,6 +1,14 @@
 class SessionsController < ApplicationController
 
+    # Login Form
     def new
+        @user = User.new
+        if logged_in?
+            flash[:message] = "You're already logged in!"
+            redirect_to user_path(current_user)
+        else
+            render 'login'
+        end
     end
 
     # Normal Login

@@ -13,5 +13,10 @@ Rails.application.routes.draw do
   get '/auth/facebook/callback' => 'sessions#create'
 
   root "welcome#home"
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  post '/logout', to: 'sessions#destroy'
+  
+  get '*path' => redirect('/')
 
 end

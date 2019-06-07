@@ -6,6 +6,9 @@ class BusinessesController < ApplicationController
         # @user ? @businesses = @user.businesses : page_not_found
     end
 
+    def new
+    end
+
     def create
     end
 

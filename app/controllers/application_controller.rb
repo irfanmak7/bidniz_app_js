@@ -1,9 +1,13 @@
 class ApplicationController < ActionController::Base
+    protect_from_forgery with: :exception
+    include ApplicationHelper
 
-    helper_method :current_user, :logged_in?, :require_login
+    private
 
     def require_login
-        redirect_to root_path, alert: "You have to login to see this page." unless session.include? :user_id
+        if !logged_in?
+            flash[:danger] = "You have to be logged in to view this page!"
+            redirect_to '/'
+        end
     end
-
 end

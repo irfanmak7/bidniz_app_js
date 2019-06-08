@@ -2,8 +2,11 @@ class SessionsController < ApplicationController
 
     # Login Form
     def new
-        @user = User.new
-        render 'login'
+        if logged_in?
+            dssd
+        else
+            @user = User.new
+        end
     end
 
     # Normal Login
@@ -34,13 +37,9 @@ class SessionsController < ApplicationController
 
     # Logout
     def destroy
-        if session[:user_id].present?
-            session.delete :user_id
-            flash[:message] = "You're successfully logged out"
-            redirect to '/'
-        else
-            session[:user_id] = nil
-        end
+        session.clear
+        flash[:success] = "You have logged out"
+        redirect_to '/'
     end
 
     private

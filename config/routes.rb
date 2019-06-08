@@ -1,23 +1,15 @@
 Rails.application.routes.draw do
 
-  resources :users, only: [:new, :create, :show]
-  resources :businesses
+  root 'welcome#home'
 
-  resources :users, only: [:show] do 
-    resources :businesses, only: [:index, :show]
-  end
-
-  # resources :businesses do
-    # resources :comments
-  # end
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   get '/auth/facebook/callback' => 'sessions#facebookAuth'
 
-  root "welcome#home"
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  post '/logout', to: 'sessions#destroy'
-  
-  get '*path' => redirect('/')
+  resources :users
+  resources :businesses
+  # resources :comments
 
 end

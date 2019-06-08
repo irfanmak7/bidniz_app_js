@@ -9,6 +9,10 @@ class BusinessesController < ApplicationController
         end
     end
 
+    def show
+
+    end
+
     def new
         @business = Business.new(user_id: params[:user_id])
     end

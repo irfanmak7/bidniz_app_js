@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     # Login Form
     def new
         if logged_in?
-            dssd
+            redirect_to user_path(@user)
         else
             @user = User.new
         end

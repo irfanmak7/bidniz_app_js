@@ -1,6 +1,7 @@
 <h1>Welcome, <%= @user.name %>!</h1>
 <h3>Your email is: <%=@user.email%>.</h3>
 
+<p><%= link_to "View All Your Businesses For Sale", businesses_path %><p>
+<p><%= link_to "Sell A Business", new_business_path %><p>
 
-<br>
 <%= link_to "Logout", logout_path, method: :delete %>

@@ -1,5 +1,6 @@
-<h1>Welcome, <%= @user.email %>!</h1>
+<h1>Welcome, <%= @user.name %>!</h1>
+<h3>Your email is: <%=@user.email%>.</h3>
 
 
 <br>
-<%= link_to "Logout", logout_path %>
+<%= link_to "Logout", logout_path, method: :delete %>

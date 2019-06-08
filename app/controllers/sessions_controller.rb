@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     # Normal Login
     def create
-        @user = User.find_by(email: params[:email])
+        @user = User.find_by(email: params[:user][:email])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
             flash[:success] = "Welcome #{@user.name}!"

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get '/auth/facebook/callback' => 'sessions#create'
+  get '/auth/facebook/callback' => 'sessions#facebookAuth'
 
   root "welcome#home"
   get '/login', to: 'sessions#new'

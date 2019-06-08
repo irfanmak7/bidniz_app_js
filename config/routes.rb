@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   resources :businesses
   # resources :comments
 
+  resources :users, only: [:show] do
+    resources :businesses, only: [:show, :index]
+  end
+
 end

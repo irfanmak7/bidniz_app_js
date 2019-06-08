@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(email: params[:email])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
+            flash[:success] = "Welcome #{@user.name}!"
             redirect_to user_path(@user)
         else
             flash[:message] = "Please enter the correct information."
@@ -20,10 +21,15 @@ class SessionsController < ApplicationController
 
     # Login with Facebook
     def facebookAuth
-        @user = User.from_omniauth(auth)
-        @user.save
+        @user = User.find_or_create_by(uid: auth['uid']) do |u|
+            u.name = auth['info']['name']
+            u.email = auth['info']['email']
+            u.password = SecureRandom.hex(10)
+        end
         session[:user_id] = @user.id
+        flash[:success] = "Welcome #{@user.name}!"
         redirect_to user_path(@user)
+
     end
 
     # Logout

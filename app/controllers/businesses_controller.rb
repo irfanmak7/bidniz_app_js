@@ -2,8 +2,11 @@ class BusinessesController < ApplicationController
     before_action :require_login
 
     def index
-        @user = User.find_by(id: params[:user_id])
-        # @user ? @businesses = @user.businesses : page_not_found
+        if params[:user_id]
+            @businesses = User.find(params[:user_id]).businesses
+        else
+            @businesses = Business.all
+        end
     end
 
     def new

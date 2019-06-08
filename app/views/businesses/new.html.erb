@@ -3,6 +3,8 @@
 <h2>Add a business for sale</h2>
 
 <%= form_for (@business) do |f| %>
+    <%= f.hidden_field :user_id %>
+    
     <%= f.label :name %>
     <%= f.text_field :name %>
     <br>

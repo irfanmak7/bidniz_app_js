@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
+  resources :businesses
 
   resources :users, only: [:show] do 
-    resources :businesses, only: [:index, :new, :create, :show]
+    resources :businesses, only: [:index, :show]
   end
 
   # resources :businesses do

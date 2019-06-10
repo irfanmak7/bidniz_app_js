@@ -22,6 +22,12 @@
         <p><%= link_to "View All Your Businesses For Sale", user_businesses_path(current_user) %><p>
         <p><%= link_to "Sell A Business", new_business_path %><p>
         <%= link_to "Logout", logout_path, method: :delete %>
+
+        <h3>Recent Businesses for Sale </h3>
+        <% @businesses.each do |b| %>
+            <p><%= link_to b.name, user_business_path(@user, b.id)%></p>
+
+        <% end %>
     <% end %>
 <% #end %>
 

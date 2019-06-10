@@ -3,3 +3,5 @@
 <h2>Here is a list of all your businesses for sale:</h2>
 
 <%= link_to "Go Back to Dashboard", user_path(current_user)%>
+
+<%= will_paginate @businesses %>

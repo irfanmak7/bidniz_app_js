@@ -1,0 +1,10 @@
+<h1>Bidniz!</h1>
+
+<h3>Business Details: </h3>
+
+<p>Name: <%= @business.name %></p>
+<p>Description: <%= @business.description %></p>
+<p>Address: <%= @business.address %></p>
+<p>Price: $<%= @business.price %></p>
+
+<p><%= link_to "Go Back to Dashboard", user_path(current_user)%></p>

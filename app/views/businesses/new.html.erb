@@ -1,6 +1,7 @@
 <h1>Welcome to Bidniz!</h1>
 
 <h2>Add a business for sale</h2>
+<p><%= link_to "Go Back to Dashboard", user_path(current_user)%></p>
 
 <%= form_for (@business) do |f| %>
     <%= f.hidden_field :user_id %>

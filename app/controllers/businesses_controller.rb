@@ -7,6 +7,7 @@ class BusinessesController < ApplicationController
     end
 
     def show
+        @comments = Comment.where(business_id: @business)
     end
 
     def new

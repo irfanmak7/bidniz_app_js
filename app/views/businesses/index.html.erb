@@ -4,4 +4,9 @@
 
 <%= link_to "Go Back to Dashboard", user_path(current_user)%>
 
-<%= will_paginate @businesses %>
+<% @businesses.each do |b| %>
+    <h4><%= b.name%></h4>
+    <p>Description: <%= b.description %></p>
+    <p>Address: <%= b.address %></p>
+    <p>Price: <%= b.price %></p>
+<% end %>

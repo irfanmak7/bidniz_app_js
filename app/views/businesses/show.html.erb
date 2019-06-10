@@ -7,4 +7,8 @@
 <p>Address: <%= @business.address %></p>
 <p>Price: $<%= @business.price %></p>
 
+<% if @business.user_id == current_user.id%>
+    <p><%= link_to "Delete Business", business_path(@business), method: :delete, data: { confirm: "Are you sure you want to take this business off the market?" }%></p>
+<% end %>
+
 <p><%= link_to "Go Back to Dashboard", user_path(current_user)%></p>

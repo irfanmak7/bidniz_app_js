@@ -15,8 +15,7 @@
 
 <h2>Comments</h2>
 <% @comments.each do |c| %>
-    <p><%= link_to c.user.name, user_path(c.user_id) %></p>
-    <p><%= c.content %></p>
+    <p><%= link_to c.user.name, user_path(c.user_id) %>: <%= c.content %></p>
 <% end %>
 
 <%= form_for([@business, @business.comments.build]) do |f| %>

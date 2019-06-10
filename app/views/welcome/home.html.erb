@@ -1,13 +1,55 @@
-<h1>Welcome to Bidniz!</h1>
-<br>
-<h2>Looking to buy or sell a business? You've come to the right place!</h2>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bidniz!</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,800" />
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                background: -webkit-linear-gradient(top, #56ccf2, #2f80ed) no-repeat 50% 50% fixed;
+                background-size: cover;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                font-family: 'Montserrat', sans-serif;
+                height: 100vh;
+                margin: -20px 0 50px;
+            }
+
+            h1 {
+                font-weight: bold;
+                margin: 0;
+            }
+
+            a {
+                color: #333;
+                font-size: 14px;
+                text-decoration: none;
+                margin: 15px 0;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to Bidniz!</h1>
+        <br>
+        <h2>Looking to buy or sell a business? You've come to the right place!</h2>
+        <h5>My Account</h5>
+        <%= link_to "Log In", login_path%> 
+        <h5>Don't have an account?</h5>
+        <%= link_to "Sign Up", new_user_path%><br>
+    </body>
+</html>
 
 
-    <h5 class="mt-5">My Account</h5>
-    <%= link_to "Log In", login_path, class: "btn btn-outline-dark" %> 
 
-    <h5 class="mt-5">Don't have an account?</h5>
-    <%= link_to "Sign Up", new_user_path, class: "btn btn-outline-info" %><br>
+
+
+
 
  
 

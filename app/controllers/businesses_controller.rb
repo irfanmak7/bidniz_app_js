@@ -14,16 +14,16 @@ class BusinessesController < ApplicationController
     end
 
     def new
-        @business = Business.new(user_id: params[:user_id])
+        @business = Business.new
     end
 
     def create
         @business = current_user.businesses.build(business_params)
 
         if @business.save
-            redirect_to user_business_path(@business.user, @business)
+            redirect_to user_business_path(current_user, @business)
         else
-            render :new
+            redirect_to new_business_path
         end
     end
 

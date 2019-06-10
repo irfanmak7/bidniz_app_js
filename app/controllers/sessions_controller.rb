@@ -1,11 +1,12 @@
 class SessionsController < ApplicationController
-
     # Login Form
     def new
+        @user = User.new
         if logged_in?
-            redirect_to user_path(@user)
+            flash[:message] = "You are alrady logged in"
+            redirect_to user_path(current_user)
         else
-            @user = User.new
+            render 'new'
         end
     end
 
@@ -15,7 +16,7 @@ class SessionsController < ApplicationController
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
             flash[:success] = "Welcome #{@user.name}!"
-            redirect_to user_path(@user)
+            redirect_to user_path(current_user)
         else
             flash[:message] = "Please enter the correct information."
             redirect_to '/login'

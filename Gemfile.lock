@@ -51,6 +51,8 @@ GEM
     bindex (0.7.0)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
+    bootstrap-will_paginate (0.0.10)
+      will_paginate
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.22.0)
@@ -225,6 +227,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   bootsnap (>= 1.1.0)
+  bootstrap-will_paginate (= 0.0.10)
   byebug
   capybara (>= 2.15)
   chromedriver-helper

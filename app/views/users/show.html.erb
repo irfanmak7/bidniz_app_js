@@ -5,12 +5,18 @@
 <% if current_user != @user %>
     <h4>You are viewing <%= @user.name %>'s profile </h4>
     <%= link_to "Go Back to Dashboard", user_path(current_user)%>
+        <% @user.businesses.each do |b| %>
+        <h4><%= link_to b.name  %></h4>
+        <p>Description: <%= b.description %></p>
+        <p>Address: <%= b.address %></p>
+        <p>Price: <%= b.price %></p>
+    <% end %>
 <% end %>
 
 <% #if @user.businesses.count > 0 %>
 
     <% if logged_in? && current_user == @user %>
-        <p><%= link_to "View All Your Businesses For Sale", businesses_path %><p>
+        <p><%= link_to "View All Your Businesses For Sale", user_businesses_path(current_user) %><p>
         <p><%= link_to "Sell A Business", new_business_path %><p>
         <%= link_to "Logout", logout_path, method: :delete %>
     <% end %>

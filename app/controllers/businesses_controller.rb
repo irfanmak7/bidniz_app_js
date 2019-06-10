@@ -1,12 +1,12 @@
 class BusinessesController < ApplicationController
     before_action :require_login
+    before_action :find_business, only: [:show, :edit, :update, :destroy]
 
     def index
         @businesses = current_user.businesses.all
     end
 
     def show
-        @business = Business.find(params[:id])
     end
 
     def new
@@ -30,6 +30,8 @@ class BusinessesController < ApplicationController
     end
 
     def destroy
+        @business.destroy
+        redirect_to businesses_path
     end
 
     private
@@ -37,4 +39,8 @@ class BusinessesController < ApplicationController
     def business_params
         params.require(:business).permit(:name, :description, :address, :price, :user_id)
     end
+
+    def find_business
+        @business = Business.find(params[:id])
+      end
 end

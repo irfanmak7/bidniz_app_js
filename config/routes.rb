@@ -10,10 +10,12 @@ Rails.application.routes.draw do
 
   resources :users
   resources :businesses
-  # resources :comments
 
   resources :users, only: [:show] do
     resources :businesses, only: [:show, :index]
   end
 
+  resources :businesses, only: [:show] do
+    resources :comments
+  end
 end

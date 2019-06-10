@@ -1,16 +1,68 @@
-<h1>Welcome to Bidniz!</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bidniz!</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,800" />
+        <style>
+            * {
+                box-sizing: border-box;
+            }
 
-<h2>Login</h2>
+            body {
+                background: -webkit-linear-gradient(top, #56ccf2, #2f80ed) no-repeat 50% 50% fixed;
+                background-size: cover;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                font-family: 'Montserrat', sans-serif;
+                height: 100vh;
+                margin: -20px 0 50px;
+            }
 
-<%= form_for (@user), url: '/login' do |f| %>
-    <%= f.label :email %>
-    <%= f.email_field :email, required:true  %>
-    <br>
-    <%= f.label :password %>
-    <%= f.password_field :password, required:true  %>
-    <br>
-    <%= f.submit "Log In" %>
-    <button type="button" class="loginBtn loginBtn--facebook"><%= link_to "Login with Facebook", '/auth/facebook' %></button>
-<% end %>
+            h1 {
+                font-weight: bold;
+                margin: 0;
+            }
 
-<p><%= link_to "Need to create an account?", new_user_path %></p>
+            a {
+                color: #333;
+                font-size: 14px;
+                text-decoration: none;
+                margin: 15px 0;
+            }
+
+            form {
+                
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                padding: 0 50px;
+
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to Bidniz!</h1>
+
+        <h2>Login</h2>
+
+        <%= form_for (@user), url: '/login' do |f| %>
+            <%= f.label :email %>
+            <%= f.email_field :email, required:true  %>
+            <br>
+            <%= f.label :password %>
+            <%= f.password_field :password, required:true  %>
+            <br>
+            <%= f.submit "Log In" %>
+            <p><button type="button" class="loginBtn loginBtn--facebook"><%= link_to "Login with Facebook", '/auth/facebook' %></button></p>
+        <% end %>
+
+        <p><%= link_to "Need to create an account?", new_user_path %></p>
+    </body>
+</html>
+
+
+

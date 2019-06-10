@@ -2,7 +2,7 @@ class BusinessesController < ApplicationController
     before_action :require_login
 
     def index
-        @businesses = current_user.businesses.paginate(page: params[:page], per_page: 1)
+        @businesses = current_user.businesses.all
     end
 
     def show

@@ -12,3 +12,18 @@
 <% end %>
 
 <p><%= link_to "Go Back to Dashboard", user_path(current_user)%></p>
+
+<h2>Comments</h2>
+<% @comments.each do |c| %>
+    <p><%= link_to c.user.name, user_path(@business.user) %></p>
+    <span><%= c.content %>
+<% end %>
+
+<%= form_for([@business, @business.comments.build]) do |f| %>
+
+    <%= f.label "Reply to thread" %>
+    <%= f.text_area :content, class: "textarea" %>
+
+    <%= f.submit class: "button" %>
+
+<% end %>

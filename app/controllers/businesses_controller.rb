@@ -12,6 +12,7 @@ class BusinessesController < ApplicationController
 
     def new
         @business = Business.new
+        @business.comments.build
     end
 
     def create

@@ -15,15 +15,15 @@
 
 <h2>Comments</h2>
 <% @comments.each do |c| %>
-    <p><%= link_to c.user.name, user_path(@business.user) %></p>
-    <span><%= c.content %>
+    <p><%= link_to c.user.name, user_path(c.user_id) %></p>
+    <p><%= c.content %></p>
 <% end %>
 
 <%= form_for([@business, @business.comments.build]) do |f| %>
 
-    <%= f.label "Reply to thread" %>
-    <%= f.text_area :content, class: "textarea" %>
-
-    <%= f.submit class: "button" %>
+    <p><%= f.label "Reply to thread" %></p>
+    <%= f.text_area :content %>
+    <br>
+    <%= f.submit %>
 
 <% end %>

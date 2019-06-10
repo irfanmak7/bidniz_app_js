@@ -7,7 +7,7 @@
     <h4><%= @user.name %>'s Businesses for Sale:</h4>
 
     <% @user.businesses.each do |b| %>
-        <h4><%= link_to b.name  %></h4>
+        <h4><%= link_to b.name, user_business_path(@user, b.id)  %></h4>
         <p>Description: <%= b.description %></p>
         <p>Address: <%= b.address %></p>
         <p>Price: <%= b.price %></p>

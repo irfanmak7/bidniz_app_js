@@ -13,13 +13,6 @@ class CommentsController < ApplicationController
         end
     end
 
-    def destroy
-        @business = Business.find(params[:business_id])
-        @comment = @business.comments.find(params[:id])
-        @comment.destroy
-        redirect_to business_path(@business)
-    end
-
     private
 
     def comment_params

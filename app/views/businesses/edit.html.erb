@@ -28,7 +28,6 @@
 
             body {
                 background: #f6f5f7;
-
                 font-family: 'Montserrat', sans-serif;
             }
 
@@ -45,7 +44,6 @@
                 width: auto;
                 height: auto;
                 display: flex;
-                justify-content: center;
                 align-items: center;
                 flex-direction: column;
             }
@@ -54,8 +52,42 @@
                 color: #000;
                 font-size: 14px;
                 text-decoration: none;
-                margin: 15px 0;
             }
+
+            .forms {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                height: 100%;
+                text-align: center;
+                position: relative;
+                top: 0;
+                height: 100%;
+                transition: all 0.6s ease-in-out;
+            }
+
+            input {
+                background-color: #eee;
+                border: none;
+                padding: 12px;
+                margin: 8px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .button {
+                border-radius: 20px;
+                border: 1px solid #FF4B2B;
+                background-color: #FFFFFF;
+                font-size: 12px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                transition: transform 80ms ease-in;
+                width: 300px;
+            }
+
         </style>
     </head>
     <body>
@@ -70,34 +102,21 @@
             </div>
         </div>
         <div class="container" id="container">
-            <h3>Business Details: </h3>
-
-            <p>Name: <%= @business.name %></p>
-            <p>Description: <%= @business.description %></p>
-            <p>Address: <%= @business.address %></p>
-            <p>Price: $<%= @business.price %></p>
-
-            <% if @business.user_id == current_user.id %>
-                <h4><%= link_to "Edit", edit_business_path(@business) %></h4>
-            <% end %>
-
-            <% if @business.user_id == current_user.id%>
-                <h4><%= link_to "Delete Business", business_path(@business), method: :delete, data: { confirm: "Are you sure you want to take this business off the market?" }%></h4>
-            <% end %>
-
-            <h2>Comments</h2>
-            <% @comments.each do |c| %>
-                <p><%= link_to c.user.name, user_path(c.user_id) %>: <%= c.content %></p>
-            <% end %>
-
-            <%= form_for([@business, @business.comments.build]) do |f| %>
-
-                <p><%= f.label "Reply to thread" %></p>
-                <%= f.text_area :content %>
-                <br>
-                <%= f.submit %>
-
-            <% end %>
+            <h2>Edit Your Business</h2>
+            <div class="forms">
+                <%= form_for (@business) do |f| %>
+                    <%= f.hidden_field :user_id %>
+                    <%= f.text_field :name, placeholder: "Business Name" %>
+                    <br>
+                    <%= f.text_field :description, placeholder: "Description" %>
+                    <br>
+                    <%= f.text_field :address, placeholder: "Address" %>
+                    <br>
+                    <%= f.number_field :price, placeholder: "Asking Price" %>
+                    <br>
+                    <%= f.submit "Update Business", :class => "button" %>
+                <% end %>
+            </div>
         </div>
     </body>
 </html>

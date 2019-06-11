@@ -1,33 +1,109 @@
-<h1>Bidniz!</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bidniz!</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,800" />
+        <style>
+            #nav {
+                background: #FF416C;
+                background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+                background: linear-gradient(to right, #FF4B2B, #FF416C);
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 50px;
+                border-radius: 10px;
+                width: auto;
+
+            }
+            li {
+                display: inline;
+                padding: 50px;    
+            }
+
+            
+            #header {
+                text-align: center;
+                
+            }
+
+            body {
+                background: #f6f5f7;
+
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            .container {
+	            background: #FF416C;
+                background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+                background: linear-gradient(to right, #FF4B2B, #FF416C);
+                background-repeat: no-repeat;
+                background-size: cover;
+                border-radius: 10px;
+                box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+                        0 10px 10px rgba(0,0,0,0.22);
+                margin-top: 20px;
+                width: auto;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            a {
+                color: #000;
+                font-size: 14px;
+                text-decoration: none;
+                margin: 15px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <h1>Bidniz!</h1>
+            <div id="nav">
+                <ul>
+                <li><%= link_to "Dashboard", user_path(current_user)%></li>
+                <li><%= link_to "My Businesses", user_businesses_path(current_user) %></li>
+                <li><%= link_to "Logout", logout_path, method: :delete %></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container" id="container">
+            <% if current_user != @user %>
+                <h2>You are logged in as <%= current_user.name %>(<%= current_user.email%>)!</h2>
+                <h3>You are viewing <%= @user.name %>'s profile </h3>
+                <h4><%= @user.name %>'s Businesses for Sale:</h4>
+
+                <% @user.businesses.each do |b| %>
+                    <h4><%= link_to b.name, user_business_path(@user, b.id)  %></h4>
+                    <p>Description: <%= b.description %></p>
+                    <p>Address: <%= b.address %></p>
+                    <p>Price: <%= b.price %></p>
+                <% end %>
+                <%= link_to "Go Back to Dashboard", user_path(current_user)%>
+            <% end %>
 
 
-<% if current_user != @user %>
-    <h2>You are logged in as <%= current_user.name %>(<%= current_user.email%>)!</h2>
-    <h3>You are viewing <%= @user.name %>'s profile </h3>
-    <h4><%= @user.name %>'s Businesses for Sale:</h4>
 
-    <% @user.businesses.each do |b| %>
-        <h4><%= link_to b.name, user_business_path(@user, b.id)  %></h4>
-        <p>Description: <%= b.description %></p>
-        <p>Address: <%= b.address %></p>
-        <p>Price: <%= b.price %></p>
-    <% end %>
-    <%= link_to "Go Back to Dashboard", user_path(current_user)%>
-<% end %>
+            <% if logged_in? && current_user == @user %>
+                <h2>Welcome to Your Dashboard, <%= current_user.name %>!</h2>
+                <p><%= link_to "View All Your Businesses For Sale", user_businesses_path(current_user) %><p>
+                <p><%= link_to "Sell A Business", new_business_path %><p>
 
-<% #if @user.businesses.count > 0 %>
+                <h3>Recent Businesses for Sale </h3>
+                <% @businesses.each do |b| %>
+                    <p><%= link_to b.name, user_business_path(@user, b.id)%></p>
 
-    <% if logged_in? && current_user == @user %>
-        <h2>Welcome to Your Dashboard, <%= current_user.name %>!</h2>
-        <p><%= link_to "View All Your Businesses For Sale", user_businesses_path(current_user) %><p>
-        <p><%= link_to "Sell A Business", new_business_path %><p>
-        <%= link_to "Logout", logout_path, method: :delete %>
+                <% end %>
+            <% end %>
+        </div>
+    </body>
+</html>
 
-        <h3>Recent Businesses for Sale </h3>
-        <% @businesses.each do |b| %>
-            <p><%= link_to b.name, user_business_path(@user, b.id)%></p>
 
-        <% end %>
-    <% end %>
-<% #end %>
+
+
+
+
 

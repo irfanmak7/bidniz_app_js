@@ -1,12 +1,88 @@
-<h1>Welcome to Bidniz!</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bidniz!</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,800" />
+        <style>
+            #nav {
+                background: #FF416C;
+                background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+                background: linear-gradient(to right, #FF4B2B, #FF416C);
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 50px;
+                border-radius: 10px;
+                width: auto;
 
-<h2>Here is a list of all your businesses for sale:</h2>
+            }
+            li {
+                display: inline;
+                padding: 50px;    
+            }
 
-<%= link_to "Go Back to Dashboard", user_path(current_user)%>
+            
+            #header {
+                text-align: center;
+                
+            }
 
-<% @businesses.each do |b| %>
-    <h4><%= link_to b.name, user_business_path(current_user, b.id)  %></h4>
-    <p>Description: <%= b.description %></p>
-    <p>Address: <%= b.address %></p>
-    <p>Price: <%= b.price %></p>
-<% end %>
+            body {
+                background: #f6f5f7;
+
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            .container {
+	            background: #FF416C;
+                background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+                background: linear-gradient(to right, #FF4B2B, #FF416C);
+                background-repeat: no-repeat;
+                background-size: cover;
+                border-radius: 10px;
+                box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+                        0 10px 10px rgba(0,0,0,0.22);
+                margin-top: 20px;
+                width: auto;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            a {
+                color: #000;
+                font-size: 14px;
+                text-decoration: none;
+                margin: 15px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <h1>Bidniz!</h1>
+            <div id="nav">
+                <ul>
+                <li><%= link_to "Dashboard", user_path(current_user)%></li>
+                <li><%= link_to "My Businesses", user_businesses_path(current_user) %></li>
+                <li><%= link_to "Logout", logout_path, method: :delete %></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container" id="container">
+            <h2>Here is a list of all your businesses for sale:</h2>
+
+            <% @businesses.each do |b| %>
+                <h4><%= link_to b.name, user_business_path(current_user, b.id)  %></h4>
+                <p>Description: <%= b.description %></p>
+                <p>Address: <%= b.address %></p>
+                <p>Price: $<%= b.price %></p>
+            <% end %>
+        </div>
+    </body>
+</html>
+
+
+
+
+

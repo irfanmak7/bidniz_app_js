@@ -1,23 +1,122 @@
-<h1>Welcome to Bidniz!</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bidniz!</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,800" />
+        <style>
+            #nav {
+                background: #FF416C;
+                background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+                background: linear-gradient(to right, #FF4B2B, #FF416C);
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 50px;
+                border-radius: 10px;
+                width: auto;
 
-<h2>Add a business for sale</h2>
-<p><%= link_to "Go Back to Dashboard", user_path(current_user)%></p>
+            }
+            li {
+                display: inline;
+                padding: 50px;    
+            }
 
-<%= form_for (@business) do |f| %>
-    <%= f.hidden_field :user_id %>
-    
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <br>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <br>
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-    <br>
-    <%= f.label :price %>
-    <%= f.number_field :price %>
-    <br>
-    <%= f.submit "Create Business"%>
+            
+            #header {
+                text-align: center;
+                
+            }
 
-<% end %>
+            body {
+                background: #f6f5f7;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            .container {
+	            background: #FF416C;
+                background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+                background: linear-gradient(to right, #FF4B2B, #FF416C);
+                background-repeat: no-repeat;
+                background-size: cover;
+                border-radius: 10px;
+                box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+                        0 10px 10px rgba(0,0,0,0.22);
+                margin-top: 20px;
+                width: auto;
+                height: auto;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            a {
+                color: #000;
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+            .forms {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                height: 100%;
+                text-align: center;
+                position: relative;
+                top: 0;
+                height: 100%;
+                transition: all 0.6s ease-in-out;
+            }
+
+            input {
+                background-color: #eee;
+                border: none;
+                padding: 12px;
+                margin: 8px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .button {
+                border-radius: 20px;
+                border: 1px solid #FF4B2B;
+                background-color: #FFFFFF;
+                font-size: 12px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                transition: transform 80ms ease-in;
+                width: 300px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <h1>Bidniz!</h1>
+            <div id="nav">
+                <ul>
+                <li><%= link_to "Dashboard", user_path(current_user)%></li>
+                <li><%= link_to "My Businesses", user_businesses_path(current_user) %></li>
+                <li><%= link_to "Logout", logout_path, method: :delete %></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container" id="container">
+            <h2>Add a business for sale</h2>
+            <div class="forms">
+                <%= form_for (@business) do |f| %>
+                    <%= f.hidden_field :user_id %>
+                    <%= f.text_field :name, placeholder: "Business Name" %>
+                    <br>
+                    <%= f.text_field :description, placeholder: "Description" %>
+                    <br>
+                    <%= f.text_field :address, placeholder: "Address" %>
+                    <br>
+                    <%= f.number_field :price, placeholder: "Asking Price" %>
+                    <br>
+                    <%= f.submit "Create Business", :class => "button" %>
+                <% end %>
+            </div>
+        </div>
+    </body>
+</html>

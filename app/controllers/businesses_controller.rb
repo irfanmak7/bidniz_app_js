@@ -12,7 +12,6 @@ class BusinessesController < ApplicationController
 
     def new
         @business = Business.new
-        @business.comments.build
     end
 
     def create
@@ -29,6 +28,11 @@ class BusinessesController < ApplicationController
     end
 
     def update
+        if @business.update(business_params)
+            redirect_to user_business_path(current_user, @business)
+          else
+            render :edit
+        end
     end
 
     def destroy

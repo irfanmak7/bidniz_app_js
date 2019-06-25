@@ -4,4 +4,6 @@ class Business < ApplicationRecord
 
     has_many :businesses_tags
     has_many :tags, through: :businesses_tags
+
+    scope :latest, -> { order(created_at: :desc) }
 end

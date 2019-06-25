@@ -77,6 +77,22 @@
             <p>Address: <%= @business.address %></p>
             <p>Price: $<%= @business.price %></p>
 
+            <% if @business.user_id == current_user.id%>
+                <h2>Tags</h2>
+                <% @business.tags.each do |t| %>
+                    <p><%= t.name %></p>
+                <% end %>
+
+                <%= form_for([@business, @business.tags.build]) do |f| %>
+
+                    <p><%= f.label "Add a tag" %></p>
+                    <%= f.text_field :name %>
+                    <br>
+                    <%= f.submit %>
+
+                <% end %>
+            <% end %>
+
             <% if @business.user_id == current_user.id %>
                 <h4><%= link_to "Edit", edit_business_path(@business) %></h4>
             <% end %>

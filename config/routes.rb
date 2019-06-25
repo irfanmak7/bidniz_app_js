@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   resources :businesses, only: [:show] do
     resources :comments
   end
+
+  resources :businesses, only: [:show] do
+    resources :tags
+  end
 end

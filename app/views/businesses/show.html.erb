@@ -6,8 +6,8 @@
         <style>
             #nav {
                 background: #FF416C;
-                background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-                background: linear-gradient(to right, #FF4B2B, #FF416C);
+                /* background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C); */
+                /* background: linear-gradient(to right, #FF4B2B, #FF416C); */
                 background-repeat: no-repeat;
                 background-size: cover;
                 height: 50px;
@@ -33,9 +33,9 @@
             }
 
             .container {
-	            background: #FF416C;
-                background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-                background: linear-gradient(to right, #FF4B2B, #FF416C);
+	            /* background: #FF416C; */
+                /* background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C); */
+                /* background: linear-gradient(to right, #FF4B2B, #FF416C); */
                 background-repeat: no-repeat;
                 background-size: cover;
                 border-radius: 10px;
@@ -80,7 +80,7 @@
             <% # View and Add Tags %>
             <h2>Tags</h2>
             <% @business.tags.each do |t| %>
-                <p><%= t.name %></p>
+                <p><%= t.name if t.name %></p>
             <% end %>
 
             <%= form_for([@business, @business.tags.build]) do |f| %>

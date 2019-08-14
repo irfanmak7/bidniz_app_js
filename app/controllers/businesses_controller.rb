@@ -11,7 +11,11 @@ class BusinessesController < ApplicationController
     end
 
     def all
-
+        @businesses = Business.all
+        respond_to do |f|
+            f.html { render :all} 
+            f.json { render json: @businesses }
+        end
     end
 
     def show

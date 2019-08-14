@@ -8,3 +8,8 @@ Comment.create(content: "Great place!", business_id: 1, user_id: 1)
 Comment.create(content: "Too Expensive", business_id: 1, user_id: 2)
 Comment.create(content: "Good food and cheap", business_id: 2, user_id: 1)
 Comment.create(content: "Contact to buy", business_id: 2, user_id: 2)
+
+Tag.create(name: "Fun")
+Tag.create(name: "Good times")
+Tag.create(name: "Cheap drinks")
+Tag.create(name: "Good food")

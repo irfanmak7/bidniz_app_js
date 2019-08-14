@@ -1,10 +1,10 @@
-A Ruby on Rails web application that allows users to list their businesses for sale. The app allows users to sign up, log in and list businesses that they own for sale. Users are able to edit and delete their own businesses as well as comment on other user's businesses.
+A Ruby on Rails and Javascript web application that allows users to list their businesses for sale. The app allows users to sign up, log in and list businesses that they own for sale. Users are able to edit and delete their own businesses as well as comment on other user's businesses.
 
 INSTALLATION
 
 To run this app, open up terminal and enter:
 
-    git clone https://github.com/irfanmak7/bidniz_app
+    git clone https://github.com/irfanmak7/bidniz_app_js
     
 After it is cloned, change into the bidniz_app directory. From the directory, enter this in terminal:
 
@@ -15,6 +15,10 @@ After the all the gems are installed, enter this in terminal:
     rake db:migrate
     
 After the migration, enter this terminal:
+
+    rake db:seed
+
+After the seeding, enter this terminal:
 
     rails s
     

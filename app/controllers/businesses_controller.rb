@@ -20,6 +20,10 @@ class BusinessesController < ApplicationController
 
     def show
         @comments = Comment.where(business_id: @business)
+        respond_to do |format|
+            format.html
+            format.json {render json: @business}
+        end
     end
 
     def new

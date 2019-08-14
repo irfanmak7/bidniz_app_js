@@ -4,6 +4,9 @@ class BusinessesController < ApplicationController
 
     def index
         @businesses = current_user.businesses.all
+        respond_to do |f|
+            f.html { render :all }
+            f.json { render json: @businesses }
     end
 
     def show

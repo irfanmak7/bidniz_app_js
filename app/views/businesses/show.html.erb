@@ -125,6 +125,11 @@
                 <h4><%= link_to "Delete Business", business_path(@business), method: :delete, data: { confirm: "Are you sure you want to take this business off the market?" }%></h4>
             <% end %>
 
+            <button id="view-comments" data-id="<%= @business.id %>"> View Comments </button>
+            <br>
+            <div id='ajax-comment-data'> </div>
+
+
             <h2>Comments</h2>
             <% @comments.each do |c| %>
                 <p><%= link_to c.user.name, user_path(c.user_id) %>: <%= c.content %></p>

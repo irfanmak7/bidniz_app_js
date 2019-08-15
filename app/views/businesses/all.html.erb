@@ -59,6 +59,16 @@
         </style>
     </head>
     <body>
+        <div id="header">
+            <h1>Bidniz!</h1>
+            <div id="nav">
+                <ul>
+                <li><%= link_to "Dashboard", user_path(current_user)%></li>
+                <li><%= link_to "My Businesses", user_businesses_path(current_user) %></li>
+                <li><%= link_to "Logout", logout_path, method: :delete %></li>
+                </ul>
+            </div>
+        </div>
 
     </body>
 </html>

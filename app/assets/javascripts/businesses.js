@@ -7,6 +7,7 @@ $(document).ready(function() {
                 const myBusiness1HTML = mybusiness1.postAdditionalInfoHTML()
                 document.getElementById('ajax-additional-info').innerHTML += myBusiness1HTML        
             })
+            $('button#businesses-more-info').attr("disabled", true)
         })
     })
 })

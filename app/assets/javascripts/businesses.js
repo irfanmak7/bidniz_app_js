@@ -24,5 +24,11 @@ class oneBusiness {
 }
 
 oneBusiness.prototype.postAdditionalInfoHTML = function() {
-
+    return (`
+        <div
+        <br>
+            <p>Description: ${this.description}</p>
+            <p>Address: ${this.address}</p>
+        </div>
+    `)
 }

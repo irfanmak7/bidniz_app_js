@@ -5,5 +5,9 @@ $(function() {
 
 
 function listenForAllBusinessesClick() {
+    $('button#businesses-data').on('click', function(event) {
+        event.preventDefault()
+        getAllBusinesses()
 
+    })
 }

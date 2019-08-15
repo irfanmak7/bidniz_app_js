@@ -76,7 +76,7 @@
             #ajax-new-comment {
                 text-align: center;
             }
-            
+
         </style>
     </head>
     <body>
@@ -95,6 +95,11 @@
 
             <p>Name: <%= @business.name %></p>
             <p>Description: <%= @business.description %></p>
+
+            <button id="businesses-more-info" data-id="<%= @business.id %>"> More Info </button>
+            <br>
+            <div id='ajax-additional-info'> </div>
+
             <p>Address: <%= @business.address %></p>
             <p>Price: $<%= @business.price %></p>
 

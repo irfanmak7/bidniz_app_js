@@ -22,3 +22,20 @@ class twoBusiness {
         this.comments = obj.comments
     }
 }
+
+twoBusiness.prototype.showCommentsHTML = function() {
+    
+    let postComments = this.comments.map(comment =>{
+        return (`
+            <p>${comment.content}</p>
+        `)
+    }).join("")
+
+    return (`
+        <div
+        <br>
+            <h2>Comments</h2>
+            <p>${postComments}</p>
+        </div>
+    `)
+}

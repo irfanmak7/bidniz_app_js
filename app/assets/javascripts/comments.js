@@ -7,6 +7,8 @@ $(document).ready(function() {
                 const viewCommentsHTML = mycomments.showCommentsHTML()
                 document.getElementById('ajax-comment-data').innerHTML += viewCommentsHTML
             })
+            $('button#view-comments').attr("disabled", true)
         })
     })
 });
+

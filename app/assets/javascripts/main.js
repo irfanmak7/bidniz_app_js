@@ -13,5 +13,7 @@ function listenForAllBusinessesClick() {
 }
 
 function getAllBusinesses() {
-
+    $.get('/businesses/all' + '.json', function(jsonData) {
+        
+    })
 }

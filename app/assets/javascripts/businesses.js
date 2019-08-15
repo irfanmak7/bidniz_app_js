@@ -11,3 +11,14 @@ $(document).ready(function() {
         })
     })
 })
+
+class oneBusiness {
+    constructor(obj) {
+        this.id = obj.id
+        this.name = obj.name
+        this.description = obj.description
+        this.address = obj.address
+        this.price = obj.price
+        this.comments = obj.comments
+    }
+}

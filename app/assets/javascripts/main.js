@@ -33,3 +33,7 @@ class Business {
         this.comments = obj.comments
     }
 }
+
+Business.prototype.postAllBusinessesHTML = function() {
+
+}

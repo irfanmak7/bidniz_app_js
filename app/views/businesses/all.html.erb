@@ -69,6 +69,13 @@
                 </ul>
             </div>
         </div>
-
+        <div class="container" id="container">
+            <% if logged_in? %>
+                <h2>All Businesses for Sale </h2>
+                <% @businesses.latest.each do |b| %>
+                    <p><%= b.name %></p>
+                <% end %>
+            <% end %>
+        </div>
     </body>
 </html>

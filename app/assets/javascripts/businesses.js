@@ -22,3 +22,7 @@ class oneBusiness {
         this.comments = obj.comments
     }
 }
+
+oneBusiness.prototype.postAdditionalInfoHTML = function() {
+
+}

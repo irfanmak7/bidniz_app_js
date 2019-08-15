@@ -83,7 +83,7 @@
                 letter-spacing: 1px;
                 transition: transform 80ms ease-in;
             }
-            
+
         </style>
     </head>
     <body>
@@ -112,26 +112,18 @@
                 <%= link_to "Go Back to Dashboard", user_path(current_user)%>
             <% end %>
 
-
-
             <% if logged_in? && current_user == @user %>
                 <h2>Welcome to Your Dashboard, <%= current_user.name %>!</h2>
                 <p><%= link_to "View All Your Businesses For Sale", user_businesses_path(current_user) %><p>
                 <p><%= link_to "Sell A Business", new_business_path %><p>
 
                 <h3>Recent Businesses for Sale </h3>
-                <% @businesses.latest.each do |b| %>
-                    <p><%= link_to b.name, user_business_path(@user, b.id)%></p>
 
-                <% end %>
+                <button id='businesses-data'> Show Businesses </button>
+                <div id='ajax-businesses'> </div>
+                <br>
+                <br>
             <% end %>
         </div>
     </body>
 </html>
-
-
-
-
-
-
-

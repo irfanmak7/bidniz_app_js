@@ -100,9 +100,7 @@
             <br>
             <div id='ajax-additional-info'> </div>
 
-            <p>Address: <%= @business.address %></p>
-            <p>Price: $<%= @business.price %></p>
-
+            <!--
             <% # View and Add Tags %>
             <h2>Tags</h2>
             <% @business.tags.each do |t| %>
@@ -117,6 +115,7 @@
                 <%= f.submit %>
 
             <% end %>
+            -->
 
             <% if @business.user_id == current_user.id %>
                 <h4><%= link_to "Edit", edit_business_path(@business) %></h4>

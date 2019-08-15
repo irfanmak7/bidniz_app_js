@@ -11,3 +11,7 @@ function listenForAllBusinessesClick() {
         $('button#businesses-data').attr("disabled", true)
     })
 }
+
+function getAllBusinesses() {
+
+}

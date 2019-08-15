@@ -35,5 +35,11 @@ class Business {
 }
 
 Business.prototype.postAllBusinessesHTML = function() {
-
+    return (`
+        <div>
+            <h4>${this.name}</h4>
+            <p>Price: $${this.price}</p>
+            <button align="center" type="button" class="link_button"><a href="/businesses/${this.id}">View Listing</a></button>
+        </div>
+    `)
 }
